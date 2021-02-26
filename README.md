@@ -160,3 +160,17 @@ Permet de tourner une forme. Le premier argument est les degrés et les deux aut
     <text x="100" y="80" font-size="50">Salut</text>
   </g>
 </svg>`
+
+### CSS
+
+Lorsque le SVG est intégré dans une page HTML, nous pouvons définir certains style avec CSS.
+
+Liste des attributs modifiables en CSS: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/Presentation
+
+### JavaScript
+
+Lorsque le SVG est intégré à une page il fait parti du DOM. Il peut donc être manipulé en JavaScript. Par exemple, on peut écouter la valeur choisie par l'utilisateur pour l'appliquer en temps réel au rayon d'un cercle:
+
+`<svg width="200" height="100">
+  <circle cx="100" cy="50" r=${rValue} />
+</svg>`
