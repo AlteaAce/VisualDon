@@ -1,0 +1,8 @@
+<svg viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="steelblue">
+    <rect x="50" y="47" width="300" height="33" fill="#80C7BC"/>
+    <circle cx="50" cy="50" r="30" fill="#80C7BC" />
+    <circle cx="50" cy="50" r="10" fill="none" />
+    <text x="100" y="80" font-size="50" fill="#333">VisualDonn</text>
+  </g>
+</svg>
