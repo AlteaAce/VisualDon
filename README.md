@@ -122,3 +122,41 @@ Défini le point de départ de stroke.dasharray. Il est souvent utilisé pour do
 
 `<text x="100" y="80" font-size="60" text-anchor="middle" font-weight="bold" fill="none" stroke="black" stroke-dasharray="300" stroke-dashoffset=${offset}>Salut</text>`
 
+#### transform
+
+Cet attribut permet de modifier le positionnement d'un élément. Il prend pour données: translate, scale, rotate
+
+##### translate
+
+Il faut préciser les coordonnées x et y auxquelles nous voulons bouger la forme.
+`transform="translate(-50, 20)"`
+
+`<g fill="indianred" stroke="steelblue" stroke-width="2" transform="translate(-50, 20)">
+    <circle cx="50" cy="50" r="30" />
+    <rect x="40" y="40" width="60" height="30" />
+    <text x="100" y="80" font-size="50">Salut</text>
+  </g>`
+  
+##### scale
+
+Permet d'agrandir une forme avec un facteur.
+
+`<svg width="300" height="100">
+  <g fill="indianred" stroke="steelblue" stroke-width="2" transform="scale(1.2)">
+    <circle cx="50" cy="50" r="30" />
+    <rect x="40" y="40" width="60" height="30" />
+    <text x="100" y="80" font-size="50">Salut</text>
+  </g>
+</svg>`
+
+##### rotate
+
+Permet de tourner une forme. Le premier argument est les degrés et les deux autres précise le point autour duquel la rotation doit se faire. 
+
+`<svg width="200" height="100">
+  <g fill="indianred" stroke="steelblue" stroke-width="2" transform="rotate(20, 100, 50)">
+    <circle cx="50" cy="50" r="30" />
+    <rect x="40" y="40" width="60" height="30" />
+    <text x="100" y="80" font-size="50">Salut</text>
+  </g>
+</svg>`
