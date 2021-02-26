@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercice 3</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <style>
+            #click:hover{
+                cursor: pointer;
+            }
+            #click:hover circle{
+                fill: #fff;
+                stroke: #80C7BC;
+                stroke-width: 25;
+            }
+            #click:hover text{
+                fill:#80C7BC;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <g id="click">
+                <circle cx="150" cy="50" r="50" fill="#80C7BC" transform="translate(50 50)" >
+                    <!-- <animateTransform id="anim1" attributeName="transform"
+                          attributeType="XML"
+                          type="translate"
+                          from="0 0"
+                          to="-150 -50"
+                          dur="3s"
+                          repeatCount="1"/> -->
+                          <animate id="anim1" attributeName="r" values="70; 140; 210; 140; 70; 140; 210; 400" dur="3s" repeatCount="1" begin="indefinite"/>
+                </circle>
+                <text x="200" y="108" font-size="25" fill="#fff" text-anchor="middle">Click!</text>
+            </g>
+        </svg>
+
+        <!-- <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <g id="click">
+                <rect x="10" y="10" width="100" height="32">
+                    <animate attributeType="XML" attributeName="x" from="0" to="120"
+                        dur="5s" repeatCount="1"/>
+                <text  x="200" y="110" font-size="25" fill="#f00" text-anchor="middle">Click!</text>
+            </g>
+        </svg> -->
+
+
+        <!-- <script src="script.js"></script> -->
+        <script>
+            document.getElementById("click").onclick = function(){
+                click();
+            }
+
+            function click(){
+                console.log("click");
+                // document.querySelector("circle").setAttributeNS(null, "transform", "translate(-20,20)");
+                document.getElementById("anim1").beginElement();
+                document.querySelector("g").removeAttribute("id");
+            }
+        </script>
+    </body>
+</html> 
