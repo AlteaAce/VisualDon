@@ -27,6 +27,7 @@ L'auteur souhaite mettre en avant que la plateforme continue de grandir et d'év
 ### En quoi les choix, de données ou de type de visualisation, aident à faire passer le message souhaité?
 
 Les graphiques choisis ont le mérite d'être très clair, simple et accessibles.
+Le résumé par pays est aussi très intéressant et bien amené avec un code couleur clair.
 
 
 ### Qu'est ce qui est omis?
