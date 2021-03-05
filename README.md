@@ -424,7 +424,7 @@ console.log(
 Nous n'avons pas besoin de faire ce travail de diviser par ligne, puis par cellule. Nous l'avons fait ici pour montrer comment ça marche. Mais il existe plusieurs librairies javascript qui font le travail pour vous.
 
 ```
-const fs = require('fs')
+const fs = require('fs') //file system
 const d3 = require('d3')
 
 const file = fs.readFileSync('data.csv', 'utf-8')
