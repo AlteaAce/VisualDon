@@ -312,3 +312,122 @@ Exemple:
 Pour joindre une liste de chaînes de caractères, en une chaîne de caractères.
 
 `fruits.map(d => d.name).join('----')` => Pomme----Pêche----Banane
+
+## Formats de données
+
+### JSON
+
+Le fichiers de type JSON, (JavaScript Object Notation), sont, comme le nom l'indique, déjà dans un format que javascript comprends.
+
+Une fois les données téléchargées, il faut les préparer.
+
+#### Préparer les données
+
+Un script preparer.js:
+`
+const data = require('./noms.json')
+
+const femmesAYverdon = d => d.plz === '1400' && d.sexcode === 'w'
+
+const resultat = data
+  .filter(femmesAYverdon)
+  .map(d => ({ nom: d.nachname, nombre: d.anzahl }))
+  .sort((a, b) => a.nombre > b.nombre ? -1 : 1)
+
+console.log(resultat)
+`
+Nous chargeons les données JSON, avec require.
+
+femmesAYverdon est une fonction qui prends un élément de data et retourne true s'il concerne le code postal 1400 et les femmes.
+
+Nous utilisons cette fonction pour filtrer les éléments de data, .filter(femmesAYverdon).
+
+Seul le nom et le nombre nous intéressent: .map(d => ({ nom: d.nachname, nombre: d.anzahl })).
+
+Nous utilisons la méthode .sort pour ordonner la liste.
+
+Pour finir nous envoyons le résultat à la console, console.log(result).
+
+Quand nous lançons le scripte: `node preparer`
+
+Nous voyons dans la console:
+
+`
+[
+  { nom: 'Favre', nombre: 72 },
+  { nom: 'Martin', nombre: 71 },
+  { nom: 'Chevalley', nombre: 49 },
+  { nom: 'Perret', nombre: 46 },
+  { nom: 'Muminovic', nombre: 45 }
+]
+`
+
+Si nous souhaitons sauver ces données dans un fichier, il nous faut convertir le résultat en chaîne de caractères. Pour cela, utilisons `JSON.stringify`.
+
+`console.log(JSON.stringify(result))`
+
+Pour sauver le résultat dans un fichier data.json:
+
+`node preparer > data.json`
+
+Comme lors du téléchargement, `>` sert à sauver le texte affiché dans la console dans un fichier.
+
+### CSV
+
+Le format CSV, Comma Separated Values. Comme son nom l'indique, il ressemble à ça:
+
+A,B,C
+1,2,3
+4,5,6
+
+C'est comme une feuille excel avec uniquement les données (sans les fonctions). Chaque cellule est séparée par une virgule.
+
+A |	B |	C
+1 |	2 |	3
+4 |	5 |	6
+
+#### Convertir en JSON
+
+Un scripte toJSON.js:
+
+`const fs = require('fs')
+
+const file = fs.readFileSync('data.csv', 'utf-8')`
+
+N'étant pas un format compréhensible par javascript en tant que tel, il nous faut l'ouvrir avec fs (File System), la librairie nodejs qui permet d'interagir avec les fichiers sur l'ordinateur. Cette librairie est installée en même temps que nodejs. Pas besoin de la télécharger.
+
+`fs.readFileSync` nous permet d'ouvrir un fichier. Elle prends deux argument, le chemin vers le fichier à ouvrir, data.csv, et l'encodage, utf-8.
+
+Si nous envoyons ce fichier à la console
+
+console.log(file.split('\n'))
+
+Nous avons maintenant un tableau de chaînes de caractères, chacun étant une ligne du fichier.
+
+Divisons chaque ligne au niveau du point-virgule. Le format a beau s'appeler "comma separated values", le séparateur de cellules n'a pas besoin d'être une virgule.
+
+`
+console.log(
+  file.split(`\n`)
+    .map(line => line.split(';'))
+)`
+
+
+Nous n'avons pas besoin de faire ce travail de diviser par ligne, puis par cellule. Nous l'avons fait ici pour montrer comment ça marche. Mais il existe plusieurs librairies javascript qui font le travail pour vous.
+
+`
+const fs = require('fs')
+const d3 = require('d3')
+
+const file = fs.readFileSync('data.csv', 'utf-8')
+
+const { parse } = d3.dsvFormat(';')
+
+console.log(
+  parse(file)
+    .map(d => ({
+      elus: Number(d.anzahl_gewaehlte),
+      parti: d.partei_bezeichnung_fr,
+      canton: d.kanton_bezeichnung,
+    }))
+)`
