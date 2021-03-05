@@ -174,3 +174,38 @@ Lorsque le SVG est intégré à une page il fait parti du DOM. Il peut donc êtr
 `<svg width="200" height="100">
   <circle cx="100" cy="50" r=${rValue} />
 </svg>`
+
+## JavaScript
+
+### Types de données
+
+#### Booléan
+
+True ou False
+
+#### Null / undefined
+
+Les deux sont des valeurs qui signifie "rien".
+La différence est que null est un objet et undefined est un type en lui même.
+
+#### Nombre
+
+Les nombres et chiffres, sans guillemets
+
+`Number.isNan('regrg')` Vérifie si ce n'est pas un nombre
+`Math.random()` Renvois un nombre entre 0 et 1
+`Math.floor(1.223)` ou `Math.ceil(1.223)` ou `Math.round(1.223)` Arrondis à l'inférieur, au supérieur ou au plus proche
+
+#### Chaînes de caractères (string)
+
+Les chaînes de caractères doivent être renseignées entre guillement. Il est possible de concaténer ave un + `"Salut" + "!"`
+Plusieurs fonnctions sont disponibles pour agire sur ces chaîne: `toUpperCase()` pour mettre en majuscule, `toLowerCase()` pour mettre en minusculte, `includes()` pour vérifier si la chaîne en contient une autre (entre parenthèse), `split()` permet de séparer une chaîne de caractère selon un caractère.
+
+#### Objet
+
+Il peut être utile de regrouper des données dans des objets: `const obj = Object {nom: "Machin", age: 22, aFaim: true}`
+Retourner une partie de l'objet: `obj.nom`
+Retourner les clefs de l'objet: `Object.keys(obj)`
+Ajouter un élément à l'objet: `const obj2 ({ ...obj, autre: 'x' })`
+
+#### Tableau (array)
