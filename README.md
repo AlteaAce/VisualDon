@@ -209,3 +209,106 @@ Retourner les clefs de l'objet: `Object.keys(obj)`
 Ajouter un élément à l'objet: `const obj2 ({ ...obj, autre: 'x' })`
 
 #### Tableau (array)
+
+Les tableaux se déclarent entre []. Dans ceux-ci nous pouvons mettre n'importe quel type de données.
+
+`const tableau = [1, 2, 3]`
+
+##### Méthodes sur un array
+
+`const fruits = ([
+  {name: 'Pomme', num: 5},
+  {name: 'Pêche', num: 3},
+  {name: 'Banane', num: 9}
+])`
+
+##### .map
+
+La méthode .map() permet de créer une autre liste à partir de celle que nous avons.
+
+La fonction à l'intérieur de .map() prends trois arguments:
+
+1. L'élément de la liste
+2. L'index de l'élément dans la liste
+3. La liste entière
+
+Nous pouvons quand même ignorer les arguments:
+`fruits.map(() => "Rien à voir")`--> rempli un tableau à 3 emplacement de "Rien à voir"
+
+On peut utiliser qu'un élément de la liste:
+`fruits.map(fruit => "J'ai ${fruit.num} ${fruit.name}s")` --> reprendre chaque objet du tableau et écrit: J'ai 5 Pommes, J'ai 3 Pêches, J'ai 9 Bananes
+
+##### .filter
+
+La méthode .filter() permet de ne prendre que les éléments qui nous intéressent dans une liste.
+
+La fonction à l'intérieur de .filter() (comme .map()) prends trois arguments:
+
+1. L'élément de la liste
+2. L'index de l'élément dans la liste
+3. La liste entière
+
+Si la fonction retourne true, l'élément est gardé et ignoré si elle retourne false.
+
+Si on a une fonction qui permet de savoir si une chaîne de caractère commence par P:
+`const commenceParP = fruit => fruit.name.startsWith("P")`
+
+On peut l'appliquer avec filter pour filtrer notre tableau afin de retourner que ceux qui commencent par P:
+`fruits.filter(commenceParP)`
+
+Ou si on souhaite filtrer par l'index et gaarder que les 2 premiers éléments de la liste:
+`fruits.filter((fruit, i) => i < 2)`
+
+##### .find
+
+La méthode .find() prends, comme .filter() une fonction qui retourne true ou false et retourne le premier objet sur lequel la fonction retourne true.
+
+`fruits.find(commenceParP)` => on nous retourne que le premier fruit dont le nom commence par P
+
+Si il n'y a pas de concordance/de résultat, la fonction retourne "undefined".
+
+##### .reduce
+
+Permet de réduire un ensemble d'éléments en 1 élément final.
+La méthode prends une fonction avec quatre arguments:
+
+1. Le résultat
+2. L'élément de la liste
+3. L'index de l'élément
+4. La liste entière
+
+et une valeur de départ.
+
+`liste.reduce(FONCTION, VALEUR_DE_DEPART)`
+
+Exemple:
+
+`const sum = (valeurCourant, d) => valeurCourante + d.num`
+
+`data.reduce(sum,0)` => 17
+
+Fait la somme du nombre de fruits en partant de l'index 0 du tableau.
+
+##### .reduce
+
+Vérifie si une liste inclut une valeur et retourne true ou false:
+`[1, 2, 3].includes(2)` => true
+
+##### .sort()
+
+Permet d'ordonner une liste.
+sans argument, sort ordonne par ordre alphabétique, ce qui ne convient pas pour des chiffres.
+
+Exemple:
+
+`['c', 'd', 'b', 'a'].sort()` => a, b, c, d
+
+`[12, 2, 1, 23].sort()` => 1, 12, 2, 23
+
+`[12, 2, 1, 23].sort((a, b) => a > b ? 1 : -1)` => 1, 2, 12, 23 (si a est plus grand que b --> ça retourne 1 sinon -1)
+
+##### .join()
+
+Pour joindre une liste de chaînes de caractères, en une chaîne de caractères.
+
+`fruits.map(d => d.name).join('----')` => Pomme----Pêche----Banane
