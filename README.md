@@ -377,13 +377,18 @@ Comme lors du téléchargement, `>` sert à sauver le texte affiché dans la con
 Le format CSV, Comma Separated Values. Comme son nom l'indique, il ressemble à ça:
 
 A,B,C
+
 1,2,3
+
 4,5,6
+
 
 C'est comme une feuille excel avec uniquement les données (sans les fonctions). Chaque cellule est séparée par une virgule.
 
 A |	B |	C
+
 1 |	2 |	3
+
 4 |	5 |	6
 
 #### Convertir en JSON
@@ -402,7 +407,7 @@ N'étant pas un format compréhensible par javascript en tant que tel, il nous f
 
 Si nous envoyons ce fichier à la console
 
-console.log(file.split('\n'))
+`console.log(file.split('\n'))`
 
 Nous avons maintenant un tableau de chaînes de caractères, chacun étant une ligne du fichier.
 
