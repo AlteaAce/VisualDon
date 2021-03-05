@@ -22,7 +22,7 @@ Cette carte n'est pas des plus lisible. Notemment à cause des noms d'îles trè
 
 ### Décrivez quelle est l'intention des auteurs:
 
-L'auteur souhaite mettre en avant que la plateforme continue de grandir et d'évoluer. Tout comme son contenu et sa communauté. Il met aussi en avant les préférences des utilisateurs selon diverses catégories (genre, pays, temps).
+L'auteur souhaite mettre en avant que la plateforme continue de grandir et d'évoluer. Tout comme son contenu et sa communauté. Il met aussi en avant les préférences des utilisateurs selon diverses catégories (genre, pays, temps). Tout en insinuant que le monde entier utilise ce site.
 
 ### En quoi les choix, de données ou de type de visualisation, aident à faire passer le message souhaité?
 
