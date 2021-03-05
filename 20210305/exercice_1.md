@@ -34,3 +34,4 @@ Le résumé par pays est aussi très intéressant et bien amené avec un code co
 
 Une catégorie supplémentaire qui aurait pu être intéressant pour compléter est l'âge des utilisateurs.
 Et les graphique "favorite times to watch porn" n'est pas très clair et amène beaucoup d'informations pas très utiles.
+La provenance des données ne sont pas explicites.
