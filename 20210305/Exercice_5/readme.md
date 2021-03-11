@@ -1,0 +1,1 @@
+Initiallement je voulais trouver le potentiel énergétique total par Canton. Mais je n'ai pas su faire un tableau automatisé avec un id unique (nom du canton) et en additionnant toutes les valeurs de la colonne Potentiel_GWH qui ont la même valeur dans la colonne Canton.
