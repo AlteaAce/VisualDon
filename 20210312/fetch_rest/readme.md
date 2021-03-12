@@ -5,7 +5,7 @@ Utilisez
 3. ramda pour créer une liste qui ressemble à ça:
 
 
-``
+```
 [
 
   {
@@ -29,7 +29,7 @@ Utilisez
   // ...
   
 ]
-``
+```
 
 ## Mise en place
 
