@@ -7,16 +7,27 @@ Utilisez
 
 ``
 [
+
   {
+  
     nom_utilisateur: 'Machin',
+    
     ville: 'Truc',
+    
     nom_companie: 'Bidule',
+    
     titres_posts: [
+    
       'Titre 1',
+      
       'Titre 2',
+      
     ]
+    
   },
+  
   // ...
+  
 ]
 ``
 
