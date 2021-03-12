@@ -33,13 +33,13 @@ Utilisez
 
 ## Mise en place
 
-``
+```
 npx degit idris-maps/heig-datavis-2021/modules/exercice_rest fetch_rest
 
 cd fetch_rest
 
 npm install
-``
+```
 
 Commencez avec les utilisateurs. Il faut extraire le nom_utilisateur (username), la ville (address.city) et le nom_companie (company.name).
 
