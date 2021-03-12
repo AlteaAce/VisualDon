@@ -441,3 +441,318 @@ console.log(
 )
 ```
 
+## Fonctions Ramda
+
+``const R = require('ramda')``
+
+``import {R} from "@itacirgabral/ramda"``
+
+Documentation: https://ramdajs.com/docs/
+
+### .uniq
+
+Sert à prendre que les éléments uniques dans un tableau
+
+``
+R.uniq([1,4,5,2,1,5,5,1,2,4,2,4])
+
+//Array(4) [1, 4, 5, 2]
+``
+
+``
+R.uniq([
+  { name: 'A' },
+  { name: 'C' },
+  { name: 'A' },
+  { name: 'A' },
+  { name: 'B' },
+  { name: 'B' },
+  { name: 'C' },
+  { name: 'A' },
+  { name: 'B' },
+  { name: 'A' },
+])
+
+    
+//Array(3) [ 
+//  0: Object {name: "A"}
+//  1: Object {name: "C"}
+//  2: Object {name: "B"}
+//]
+``
+
+### .prop
+
+Pour chercher une clef dans un objet
+
+``
+pomme = Object {name: "Pomme", num: 5}
+
+R.prop('name', pomme)
+//"Pomme"
+
+R.prop('num', pomme)
+// 5
+``
+
+Si nous avons une liste d'objet et souhaitons extraire une clé de chaque élément:
+
+``
+fruits = ([
+  {name: 'Pomme', num: 5},
+  {name: 'Pêche', num: 3 },
+  {name: 'Banane', num: 6}
+])
+
+``
+
+Sans ramda:
+
+``
+fruits.map(fruit => fruit.name)
+
+//Array(3) ["Pomme", "Pêche", "Banane"]
+``
+
+Avec R.prop:
+
+``
+fruits.map(R.prop('name'))
+
+//Array(3) ["Pomme", "Pêche", "Banane"]
+``
+
+Toutes les fonctions ramda sont "curry". Pour faire court, cela signifie que plutôt qu'utiliser tous les arguments, nous pouvons n'en utiliser qu'un seul et une nouvelle fonction est retournée.
+
+.prop prends deux arguments: le nom de la clé que nous souhaitons extraire ('name') et l'objet duquel nous souhaitons l'extraire (fruit).
+
+En n'utilisant que le premier argument, nous pouvons créer une fonction qui retourne la valeur de la clé name de n'importe quel objet.
+
+``
+getName = R.prop('name')
+
+//getName = ƒ(a)
+
+getName({ name: 'X' })
+// "X"
+``
+
+C'est ce que nous faisons dans l'exemple avec les fruits:
+``
+fruits.map(R.prop('name'))
+
+//Array(3) ["Pomme", "Pêche", "Banane"]
+``
+
+qui revient à écrire:
+``
+fruits.map(getName)
+// Array(3) ["Pomme", "Pêche", "Banane"]
+``
+
+Utiliser R.prop a deux avantages:
+1. Nous écrivons moins de code
+2. Nous n'avons pas besoin d'inventer les noms pour la fonction getName et pour l'objet fruit.
+
+### .map, .filter, .find, .reduce et .join
+
+Les méthodes sur une liste ont également leur version ramda.
+
+Par exemple:
+``
+R.map(R.prop('name'), fruits)
+
+//Array(3) ["Pomme", "Pêche", "Banane"]
+``
+
+est une autre manière d'écrire
+``
+fruits.map(d => d.name)
+
+//Array(3) ["Pomme", "Pêche", "Banane"]
+``
+
+ou, comme plus haut
+``
+fruits.map(R.prop('name'))
+``
+
+Avec ramda, plutôt qu'appliquer la méthode .map directement sur la liste, celle-ci est passée comme dernier argument.
+Comme toutes les fonctions ramda, celles-ci sont également "curry".
+
+Par exemple, si nous avons une fonction getNames:
+``
+getNames = R.map(R.prop('name'))
+
+//getNames = ƒ(a)
+``
+
+Nous pouvons lui passer une liste
+``
+getNames(fruits)
+
+//Array(3) ["Pomme", "Pêche", "Banane"]
+``
+
+Si notre liste de fruits est le résultat d'une promesse (Promise), si par exemple, elle doit être téléchargée avec fetch, nous pouvons appliquer la fonction getNames directement dans la méthode .then:
+``
+Promise.resolve(fruits)
+  .then(getNames)
+  
+//Array(3) ["Pomme", "Pêche", "Banane"]
+``
+
+Si nous avons une liste de listes dont nous souhaitons extraire les clés x
+``
+listeDeListes = [
+  [{x: 1}, {x: 3}, {x: 7}],
+  [{x: 2}, {x: 8}, {x: 10}]
+]
+
+listeDeListes.map(liste => liste.map(d => d.x))
+
+OU
+
+listeDeListes.map(R.map(R.prop('x')))
+
+OU
+
+R.map(R.map(R.prop('x')))(listeDeListes)
+
+//Array(2) [
+//  0: Array(3) [1, 3, 7]
+//  1: Array(3) [2, 8, 10]
+//]
+``
+
+Les autres fonctions ramda qui répliquent les méthodes sur une liste fonctionnent de la même manière:
+``
+fruits.filter(d => d.name.startsWith('P'))
+
+=
+
+R.filter(d => d.name.startsWith('P'), fruits)
+
+
+fruits.find(d => d.name === 'Pomme')
+
+=
+
+R.find(d => d.name === 'Pomme', fruits)
+
+
+
+fruits.map(d => d.name).join('---')
+
+=
+
+R.join('---', fruits.map(R.prop('name')))
+
+
+fruits.map(d => d.num).reduce((sum, num) => sum + num, 0)
+
+=
+
+R.reduce((sum, num) => sum + num, 0, R.map(R.prop('num'), fruits))
+``
+
+### .sum
+
+Avec .sum(), nous n'avons pas besoin d'utiliser .reduce pour calculer la somme d'une liste de chiffres. Pour avoir le même résultat que dans l'exemple ci-dessus, nous pouvons écrire:
+``
+R.sum(R.map(R.prop('num'), fruits))
+// 14
+
+R.sum([1, 6, 2, 8])
+//17
+``
+
+### .propEq
+
+Utile pour voir si une clé est égale à quelque chose.
+``
+R.propEq('name', 'Poire', { name: 'Pomme' })
+// false
+``
+
+Cette fonction prends trois arguments:
+1. Le nom de la clé (name)
+2. La valeur de la clé (Pomme ou Poire)
+3. Un objet ({name: 'Pomme'})
+
+Si la valeur de la clé de l'objet corresponds à la valeur définie, la fonction retourne true, sinon false.
+
+Nous pouvons l'utiliser à l'intérieur de la méthode .find par exemple:
+``
+fruits.find(R.propEq('name', 'Pomme'))
+
+OU sans ramda
+
+fruits.find(fruit => fruit.name === 'Pomme')
+
+//Object {name: "Pomme", num: 5}
+``
+
+### .path
+
+Pour sortir une partie d'un objet JSON en définissant le chemin à parcourir.
+
+Imaginons un objet person:
+``
+person = ({
+  type: 'person',
+  personalData: {
+    lastName: 'Machine',
+    gender: 'F',
+    address: {
+      street: 'Chemin Bidule',
+      city: {
+        postcode: 1234,
+        name: 'Truc-sur-Mer',
+      }
+    }
+  }
+})
+``
+
+Pour prender que les données personnelles:
+``
+R.path(['personalData'], person)
+
+//Object {
+//  lastName: "Machine"
+//  gender: "F"
+//  address: Object {street: "Chemin Bidule", city: Object}
+//}
+``
+
+La ville dans l'addresse dans les données personnelles:
+``
+R.path(['personalData', 'address', 'city'], person)
+
+//Object {postcode: 1234, name: "Truc-sur-Mer"}
+``
+
+### .pathOr
+
+Remplacer une valeur si elle n'existe pas
+``
+R.pathOr('Yverdon', ['data', 'address', 'city', 'name'], person)
+// Yverdon
+``
+
+### .pipe
+
+Pour enchaîner les fonctions.
+
+### .head
+``
+R.head([3, 2, 6, 1])
+// 3
+``
+
+### .last
+``
+R.last([3, 2, 6, 1])
+//1
+``
