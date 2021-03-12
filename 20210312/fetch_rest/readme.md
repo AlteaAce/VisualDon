@@ -41,6 +41,6 @@ cd fetch_rest
 npm install
 ```
 
-Commencez avec les utilisateurs. Il faut extraire le nom_utilisateur (username), la ville (address.city) et le nom_companie (company.name).
+Commencez avec les utilisateurs. Il faut extraire le ``nom_utilisateur`` (username), la ville (address.city) et le nom_companie (company.name).
 
 Après pour chaque utilisateur, allez chercher les titres_posts (les title dans la ressource posts).
