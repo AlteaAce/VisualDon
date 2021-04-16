@@ -372,6 +372,34 @@ Pour sauver le résultat dans un fichier data.json:
 
 Comme lors du téléchargement, `>` sert à sauver le texte affiché dans la console dans un fichier.
 
+#### Utiliser un fichier JSON dans un projet web
+
+1. Installer le "plugin" rollup ``@rollup/plugin-json``
+2. L'ajouter à ``rollup.config.js``
+
+En haut du document avec les autres import:
+``
+import json from '@rollup/plugin-json'
+``
+
+``
+{
+  // ...
+  plugins: [
+    // autres plugin...
+    json(),
+  ]
+}
+``
+
+3. Maintenant vous pouvez importer un fichier JSON dans votre code
+``
+import data from './data.json'
+``
+
+
+-----------------
+
 ### CSV
 
 Le format CSV, Comma Separated Values. Comme son nom l'indique, il ressemble à ça:
