@@ -296,6 +296,50 @@ Fait la somme du nombre de fruits en partant de l'index 0 du tableau.
 Vérifie si une liste inclut une valeur et retourne true ou false:
 `[1, 2, 3].includes(2)` => true
 
+###### Utiliser .reduce pour grouper des données
+
+```
+const data = [
+  { nom: 'Alice', examen: 1, note: 5 },
+  { nom:  'Bob', examen: 1, note: 4 },
+  { nom: 'Alice', examen: 2, note: 6 },
+  { nom:  'Bob', examen: 2, note: 3 },
+]
+
+const notesParEleve = data.reduce((r, d) => {
+  const notes = r[d.nom] || []
+  return { ...r, [d.nom]: [...notes, d.note] }
+}, {})
+
+// { Alice: [5, 6], Bob: [4, 3] }
+
+const somme = notes => notes.reduce((r, d) => r + d, 0)
+const moyenne = notes => somme(notes) / notes.length
+
+const moyenneParEleve = Object.keys(notesParEleve)
+  .map(nom => ({ nom, moyenne: moyenne(notesParEleve[nom]) }))
+
+// [{ nom: 'Alice', moyenne: 5.5, nom: 'Bob', moyenne: 3.5 }]
+```
+
+###### Joindre deux jeux de données
+
+```
+const sites = [
+  { nom: 'Alice', site: 'alice.ch' },
+  { nom: 'Bob', site: 'bob.com' },
+]
+
+const trouverSite = nom => sites.find(d => d.nom === nom)
+
+const moyenneEtSite = moyenneParEleve.map(d => ({ ...d, site: trouverSite(d.nom) }))
+
+// ou
+const objSites = sites.reduce((r, d) => ({ ...r, [d.nom]: d.site }), {})
+
+const moyenneEtSite2 = moyenneParEleve.map(d => ({ ...d, site: objSites[d.nom] }))
+```
+
 ##### .sort()
 
 Permet d'ordonner une liste.
@@ -314,6 +358,8 @@ Exemple:
 Pour joindre une liste de chaînes de caractères, en une chaîne de caractères.
 
 ```fruits.map(d => d.name).join('----')``` => Pomme----Pêche----Banane
+
+--------------------
 
 ## Formats de données
 
