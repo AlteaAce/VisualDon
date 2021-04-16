@@ -175,6 +175,8 @@ Lorsque le SVG est intégré à une page il fait parti du DOM. Il peut donc êtr
   <circle cx="100" cy="50" r=${rValue} />
 </svg>`
 
+----------------
+
 ## JavaScript
 
 ### Types de données
@@ -378,6 +380,7 @@ Comme lors du téléchargement, `>` sert à sauver le texte affiché dans la con
 2. L'ajouter à ``rollup.config.js``
 
 En haut du document avec les autres import:
+
 ``
 import json from '@rollup/plugin-json'
 ``
@@ -393,12 +396,10 @@ import json from '@rollup/plugin-json'
 ``
 
 3. Maintenant vous pouvez importer un fichier JSON dans votre code
+
 ``
 import data from './data.json'
 ``
-
-
------------------
 
 ### CSV
 
@@ -468,6 +469,8 @@ console.log(
     }))
 )
 ```
+
+-----------------
 
 ## Fonctions Ramda
 
