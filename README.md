@@ -265,6 +265,23 @@ Les filtres sont définis par l'élément <filter>, qui doit ête placé dans la
 </svg>
 ```
 
+##### avec JS 
+
+```
+const svg = select('body')
+  .append('svg')
+  .attr('viewVox', '0 0 ${WIDTH} ${HEIGHT}')
+
+const defs = svg.append('defs')
+
+const noise = defs.append('filter').attr('id', 'noise')
+noise.append('feTurbulence').attr('baseFrequency', 0.5)
+
+const shadow = defs.append('filter').attr('id', 'shadow')
+shadow.append('feOffset').attr('in', 'SourceAlpha').attr('dx', 5).attr('dy', 5)
+shadow.append('feGaussianBlur').attr('flood-color', 'lightgrey').attr('color')
+```
+
 * https://developer.mozilla.org/fr/docs/Web/SVG/Tutorial/Filter_effects
 * https://testdrive-archive.azurewebsites.net/graphics/hands-on-css3/hands-on_svg-filter-effects.htm
 * https://observablehq.com/@oliviafvane/simple-pencil-ink-pen-effect-for-svg-path-using-filters
