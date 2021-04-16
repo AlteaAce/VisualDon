@@ -161,6 +161,115 @@ Permet de tourner une forme. Le premier argument est les degrés et les deux aut
   </g>
 </svg>`
 
+### Textures SVG
+
+L'élément `<pattern>` permet d'ajouter une "texutre" à des formes.
+
+```
+<svg viewBox="0 0 230 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="star" viewBox="0,0,10,10" width="10%" height="10%">
+      <polygon points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2"/>
+    </pattern>
+  </defs>
+
+  <circle cx="50"  cy="50" r="50" fill="url(#star)"/>
+  <circle cx="180" cy="50" r="40" fill="none" stroke-width="20" stroke="url(#star)"/>
+</svg>
+```
+#### Attributs
+
+##### height et width
+Déterminent la taille du patterne
+
+##### href
+
+Référence vers un pattern.
+
+##### patternContentUnits
+
+Définit le système de coordonnées pour le pattern. N'a pas d'effet si une `viewBox` est spécifiée dans `<pattern>`.
+
+##### patternTransform
+
+Cet attribut contient la définition d’une transformation supplémentaire optionnelle du système de coordonnées de motif vers le système de coordonnées cible.
+
+##### patternUnits
+
+Cet attribut définit le système de coordonnées pour les attributs `x`, `y`, `width` et `height`.
+
+##### preserveAspectRatio
+
+Cet attribut définit comment le fragment SVG doit être déformé s’il est embarqué dans un conteneur avec un rapport d’aspect différent.
+
+##### viewBox
+
+Cet attribut définit la limite de la fenêtre d’affichage SVG pour le pattern.
+
+##### x
+
+Cet attribut détermine le décalage des coordonnées x de la grille du pattern.
+
+* https://observablehq.com/@idris-maps/textures
+* https://riccardoscalco.it/textures/
+* https://developer.mozilla.org/en-US/docs/Web/SVG/Element/pattern
+
+
+#### Filtres SVG
+
+Dans certaines situations, les formes de base n'offrent pas la flexibilité nécessaire pour obtenir un certain effet. Par exemple, les ombres portées ne peuvent raisonnablement pas être crées avec des gradients. Les filtres sont des mécanismes SVG qui permettent de créer effets plus sophistiqués.
+
+Les filtres sont définis par l'élément <filter>, qui doit ête placé dans la section <defs> de votre fichier SVG. Entre les balises du filtre, se placent une liste de primitives, des opérations basiques qui s'ajoutent aux opérations précédentes (tel que du flou, de la lumière, etc). Pour appliquer le filtre créé sur un élément graphique, on définit l'attribut filter.
+
+```
+<svg width="250" viewBox="0 0 200 85"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <!-- Déclaration du filtre -->
+    <filter id="MyFilter" filterUnits="userSpaceOnUse"
+            x="0" y="0"
+            width="200" height="120">
+
+      <!-- offsetBlur -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+
+      <!-- litPaint -->
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant=".75"
+                          specularExponent="20" lighting-color="#bbbbbb"
+                          result="specOut">
+        <fePointLight x="-5000" y="-10000" z="20000"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic"
+                   k1="0" k2="1" k3="1" k4="0" result="litPaint"/>
+
+      <!-- fusionne offsetBlur + litPaint -->
+      <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="litPaint"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Éléments graphiques -->
+  <g filter="url(#MyFilter)">
+      <path fill="none" stroke="#D90000" stroke-width="10"
+            d="M50,66 c-50,0 -50,-60 0,-60 h100 c50,0 50,60 0,60z" />
+      <path fill="#D90000"
+            d="M60,56 c-30,0 -30,-40 0,-40 h80 c30,0 30,40 0,40z" />
+      <g fill="#FFFFFF" stroke="black" font-size="45" font-family="Verdana" >
+        <text x="52" y="52">SVG</text>
+      </g>
+  </g>
+</svg>
+```
+
+* https://developer.mozilla.org/fr/docs/Web/SVG/Tutorial/Filter_effects
+* https://testdrive-archive.azurewebsites.net/graphics/hands-on-css3/hands-on_svg-filter-effects.htm
+* https://observablehq.com/@oliviafvane/simple-pencil-ink-pen-effect-for-svg-path-using-filters
+
+
 ### CSS
 
 Lorsque le SVG est intégré dans une page HTML, nous pouvons définir certains style avec CSS.
