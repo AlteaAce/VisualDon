@@ -14,4 +14,5 @@
 
 ### Journal de bord
 
-* 16 avril: Jeu de données choisi
+* 16 avril: Jeu de données choisi --> https://www.kaggle.com/aayushmishra1512/fifa-2021-complete-player-data
+J'aurais aimé trouver ce genre de données pour un jeu plus palpitant, mais ça fera l'affaire.
