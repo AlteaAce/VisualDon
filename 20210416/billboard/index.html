@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/billboard.js@3.0.2/dist/billboard.min.css" />
+    <script src="https://unpkg.com/billboard.js@3.0.2/dist/billboard.pkgd.min.js"></script>
+  </head>
+  <body>
+    <div id="graph"></div>
+    <script>
+const DATA=[
+    {"Gare":"Zurich HB","Trafic_journalier":423600},
+    {"Gare":"Winterthur","Trafic_journalier":95100},
+    {"Gare":"Zurich Oerlikon","Trafic_journalier":80000},
+    {"Gare":"Olten","Trafic_journalier":74100},
+    {"Gare":"Zurich Stadelhofen","Trafic_journalier":70200}
+]
+
+bb.generate({
+  bindto: "#graph",
+  data: {
+    json: {
+        Trafic_journalier : DATA.map(({Trafic_journalier}) => Trafic_journalier),
+    },
+    type: 'bar',
+  },
+  axis: {
+      x: {
+          type: 'category',
+          categories: DATA.map(({Gare}) => Gare),
+      }
+  }
+})
+    </script>
+  </body>
+</html>
