@@ -29,3 +29,4 @@ J'aurais aimé trouver ce genre de données pour un jeu plus palpitant, mais ça
     * Âge moyen des joueurs: boîte à moustache en précisant le plus jeune et le plus âgé
    7. Les 3 meilleurs joueurs: podium, selon le "overall"
    8. Les futurs stars? : podium selon le potentiel de croissance
+* 30 avril: Préparation de la pge HTML avec mise en place d'une grille CSS
