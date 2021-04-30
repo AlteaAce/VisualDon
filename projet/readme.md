@@ -21,9 +21,10 @@ J'aurais aimé trouver ce genre de données pour un jeu plus palpitant, mais ça
   1. Un jeu international: carte ou globe qui tourne avec les pays concernés qui sont surligné
   2. Top 5 des pays qui jouent le plus à FIFA: graphique en barre
   3. Top 5 des équipes qui ont le plus joué
-  4. Les "meilleurs équipes": 3 équipes qui on le plus de "hits"
-  5. Les positions de terrains favorites: carte d'un terrain avec des ronds aux emplacement des positions
-  6. Zoom sur les joueurs
+  4. Nombre de buts marqués en tout dans le jeu
+  5. Les "meilleurs équipes": 3 équipes qui on le plus de "hits"
+  6. Les positions de terrains favorites: carte d'un terrain avec des ronds aux emplacement des positions
+  7. Zoom sur les joueurs
     * % d'hommes et de femme
     * Âge moyen des joueurs: boîte à moustache en précisant le plus jeune et le plus âgé
    7. Les 3 meilleurs joueurs: podium, selon le "overall"
