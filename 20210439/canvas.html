@@ -1,0 +1,51 @@
+<html>
+  <body>
+    <canvas id="mon-dessin" width="1000" height="300"></canvas>
+    <script>
+
+const canvas = document.getElementById('mon-dessin')
+const context = canvas.getContext('2d')
+
+// dessinez ici
+
+//triangle
+context.beginPath();
+context.moveTo(150, 100);
+context.lineTo(60, 250);
+context.lineTo(240, 250);
+context.closePath();
+//la bordure du triangle
+context.lineWidth = 10;
+context.strokeStyle = '#9dd497';
+context.stroke();
+
+//cercle
+context.beginPath();
+context.lineWidth=10;
+context.arc(350, 170, 80, 0, 2 * Math.PI);
+context.strokeStyle = '#ab2d26';
+context.stroke();
+
+//croix
+context.beginPath();
+context.moveTo(500, 100);
+context.lineTo(650, 250); 	
+context.moveTo(650,100); 
+context.lineTo(500,250);
+context.lineWidth = 10 ; 
+context.strokeStyle ='#3332ca'; 
+context.stroke();  
+
+//carré
+context.beginPath();
+context.moveTo(700, 100);
+context.lineTo(850, 100);
+context.lineTo(850, 250);
+context.lineTo(700, 250);
+context.closePath();
+context.lineWidth = 10 ; 
+context.strokeStyle ='#a946a2'; 
+context.stroke(); 
+    </script>
+  </body>
+</html>
