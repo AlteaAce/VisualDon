@@ -4,13 +4,21 @@ import {
     select,
     timer,
   } from 'd3'
-  import collection from '../data/pays-world2.json' 
+import collection from '../data/graph1-2/data-graph1-geoPays.json' 
+import pays from '../data/graph1-2/data-graph1-2.json'
   
   const WIDTH = 1000
   const HEIGHT = 400
   
   const svg = select('#graph1').append('svg')
     .attr('viewBox', `0 0 ${WIDTH} ${HEIGHT}`)
+
+  const svg_circle = svg.append('circle')
+    .attr('cx', '500')
+    .attr('cy', '200')
+    .attr('r', '200')
+    .attr('stroke', '#121563')
+    .attr('fill', 'white')
   
   const g_country = svg.append('g')
    
@@ -20,8 +28,8 @@ import {
     .append('path')
     .attr('fill', 'white')
     .attr('stroke', '#121563')
-  
-  
+
+
   let rotate = [0, 0, 0]
   
   const tick = () => {
