@@ -5,10 +5,10 @@
 ~~1. Choisir jeu de données~~
 ~~2. Convertir les données en json~~
 ~~3. Choisir ce que je veux racconter/montrer~~
-4. Définir les graphiques que je veux faire
+~~4. Définir les graphiques que je veux faire
 5. Préparer les données pour les graphiques
 6. Définir le design
-7. Appliquer le design à la page (html & css)
+~~7. Appliquer le design à la page (html & css)
 8. Faire les graphiques
 9. Appliquer la mise en page
 10. Ajouter le texte
@@ -32,3 +32,5 @@ J'aurais aimé trouver ce genre de données pour un jeu plus palpitant, mais ça
    8. Les futurs stars? : podium selon le potentiel de croissance
 * 30 avril: Préparation de la pge HTML avec mise en place d'une grille CSS
 * 7 mai: Préparation des données pour le graph 1 et 2
+* 17 mai: Création du graph1 et 2
+* 20 mai: Ajustement du graph2
