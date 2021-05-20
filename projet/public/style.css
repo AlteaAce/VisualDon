@@ -14,31 +14,45 @@ body{
 
 header{
     grid-area: header;
-    padding: 6rem 0;
+    padding: 12rem 0;
     text-align: center;
 }
 
 container{
     grid-area: container;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     column-gap: 10px;
-    row-gap: 10px;
+    row-gap: 20px;
     grid-template-areas:
-    "sep sep sep sep sep"
-    ". intro intro intro ."
-    ". cont1 cont1 cont1 cont2"
-    "cont3 cont3 . cont4 cont4"
-    "cont5 cont5 cont5 cont5 cont5";
+    "sep1 sep1 sep1 sep1 sep1 sep1"
+    "titre1 titre1 titre1 titre1 titre1 titre1"
+    ". . cont1 cont1 cont2 cont2"
+    "titre2 titre2 titre2 titre2 titre2 titre2"
+    "cont3 cont3 cont3 cont4 cont4 cont4"
+    "cont5 cont5 cont5 cont5 cont5 cont5"
+    "sep2 sep2 sep2 sep2 sep2 sep2";
 }
 
-separator{
-    grid-area:sep;
+#separator1{
+    grid-area:sep1;
+}
+#separator2{
+    grid-area:sep2;
 }
 
 #intro{
     grid-area:intro;
+    padding: 0 10rem;
+    margin: 50px
+}
+
+#titre1{
+    grid-area: titre1;
+}
+#titre2{
+    grid-area: titre2;
 }
 
 #container1{
@@ -46,6 +60,12 @@ separator{
 }
 #container2{
     grid-area:cont2;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "."
+    "graph2";
 }
 #container3{
     grid-area:cont3;
@@ -55,6 +75,12 @@ separator{
 }
 #container5{
     grid-area:cont5;
+}
+#graph1{
+    padding: 2rem 0;
+}
+#graph2{
+    grid-area: graph2;
 }
 
 footer{
@@ -89,7 +115,9 @@ h2{
 }
 
 h3{
+    font-size: 1.4rem;
     text-align: center;
+    padding: 1rem 0;
 }
 
 .wrapper{

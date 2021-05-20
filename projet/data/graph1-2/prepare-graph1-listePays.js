@@ -21,4 +21,6 @@ const resultat2 = pays.reduce((r, d) => {
     // ...existe = copie existe
 }, []) // [] = retourne un tableau
 
-fs.writeFileSync('./data-graph1-2_v2.json', JSON.stringify(resultat2), 'utf-8');
+const resultat3 = resultat2.sort((a, b) => a.valeur < b.valeur ? 1 : -1);
+
+fs.writeFileSync('./data-graph2-listePaysTop5.json', JSON.stringify(resultat3), 'utf-8');

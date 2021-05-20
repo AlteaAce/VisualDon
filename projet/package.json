@@ -17,6 +17,8 @@
     "sirv-cli": "^1.0.11"
   },
   "dependencies": {
+    "billboard": "^1.0.0",
+    "billboard.js": "^3.0.3",
     "d3": "^6.5.0"
   }
 }
