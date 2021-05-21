@@ -1,0 +1,28 @@
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Exercice1 - 3D</title>
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-particle-system-component@1.0.9/dist/aframe-particle-system-component.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-scene>
+        <a-sky color="skyblue"></a-sky>
+        <a-plane position="0 0 -4" geometry="primitive: circle; radius: 200" rotation="-90 0 0" color="#fff"></a-plane>
+        <a-entity particle-system="preset: snow; particleCount: 5000" position="0 0.3 -3"></a-entity>
+
+        <!-- sapin de noël -->
+        <a-entity position="0.165 2.328 -4.37" material="color:green" geometry="primitive:cone; radiusTop:0; radiusBottom:0.8; segmentsHeight:20"></a-entity>
+        <a-entity position="0.183 1.003 -4.388" material="color:green" geometry="primitive:cone; radiusTop:0.4; segmentsHeight:14; radiusBottom:1.3"></a-entity>
+        <a-entity position="0.169 1.685 -4.357" material="color:green" geometry="primitive:cone; radiusTop:0.2; segmentsHeight:14"></a-entity>
+        <a-entity position="0.159 0.264 -4.314" material="color:#804000" geometry="primitive:cylinder; radiusTop:0.3; segmentsHeight:14; radius:0.3; height:0.5"></a-entity>
+    </a-scene>
+  </a-scene>
+</body>
+
+</html>
