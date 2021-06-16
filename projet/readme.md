@@ -12,12 +12,12 @@
 
 5. Préparer les données pour les graphiques
 
-6. Définir le design
+~~6. Définir le design
 
 ~~7. Appliquer le design à la page (html & css)~~
 
-8. Faire les graphiques
-9. Appliquer la mise en page
+~~8. Faire les graphiques
+~~9. Appliquer la mise en page
 10. Ajouter le texte
 
 ### Journal de bord
