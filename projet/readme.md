@@ -43,4 +43,6 @@ J'aurais aimé trouver ce genre de données pour un jeu plus palpitant, mais ça
 * 20 mai: Ajustement du graph2
 * 22 mai: Création du graph 3 et 4 (décision d'abandonner le graph6 parce que je sais pas trop comment le faire)
 * 15 et 16 juin: Création du graph 5, 7 et 8 (Décision d'abandonner le graph 9 et 10 parce qu'ils ne sont pas si pertinant et ressembleraient visuellement à des qui ont déjà été fait, donc pas ouf)
-* 17 juin: Màj dernier graphique et commentaires
+* 17 juin: Màj dernier graphique, commentaires et publication
+
+Adresse de déploiement: https://projet-visualdonn-jadeperroset.netlify.app/
