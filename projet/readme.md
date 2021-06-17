@@ -10,7 +10,7 @@
 
 ~~4. Définir les graphiques que je veux faire~~
 
-5. Préparer les données pour les graphiques
+~~5. Préparer les données pour les graphiques
 
 ~~6. Définir le design
 
@@ -18,7 +18,7 @@
 
 ~~8. Faire les graphiques
 ~~9. Appliquer la mise en page
-10. Ajouter le texte
+~~10. Ajouter le texte
 
 ### Journal de bord
 
@@ -43,3 +43,4 @@ J'aurais aimé trouver ce genre de données pour un jeu plus palpitant, mais ça
 * 20 mai: Ajustement du graph2
 * 22 mai: Création du graph 3 et 4 (décision d'abandonner le graph6 parce que je sais pas trop comment le faire)
 * 15 et 16 juin: Création du graph 5, 7 et 8 (Décision d'abandonner le graph 9 et 10 parce qu'ils ne sont pas si pertinant et ressembleraient visuellement à des qui ont déjà été fait, donc pas ouf)
+* 17 juin: Màj dernier graphique et commentaires
