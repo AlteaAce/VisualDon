@@ -3,6 +3,8 @@ import './graph2.js'
 import './graph3.js'
 import './graph4.js'
 import './graph5.js'
+import './graph7.js'
+import './graph8.js'
 
 //charger les éléments avec la class: loadLater, au scroll
 $(window).on('scroll', function(e) {

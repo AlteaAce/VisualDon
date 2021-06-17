@@ -1,13 +1,13 @@
 //Les "meilleurs équipes": 3 équipes qui on le plus de "hits" - bar chart vertical en mode podium
 const DATA_start=[
-    {"nom":"equipe1","valeur":0},
-    {"nom":"equipe2","valeur":0},
-    {"nom":"equipe3","valeur":0},
+    {"team":"2ème FC Barcelona","hits":0},
+    {"team":"1er Manchester United","hits":0},
+    {"team":"3ème Borussia Dortmund","hits":0}
 ]
 const DATA=[
-    {"nom":"equipe1","valeur":0},
-    {"nom":"equipe2","valeur":0},
-    {"nom":"equipe3","valeur":0},
+    {"team":"2ème Manchester United","hits":1497},
+    {"team":"1er FC Barcelona","hits":1688},
+    {"team":"3ème Borussia Dortmund","hits":1256}
 ]
 
 var chart = bb.generate({
@@ -17,13 +17,18 @@ var chart = bb.generate({
     },
     "data": {
         "json" : {
-            Joueurs_FIFA21 : DATA_start.map(({valeur}) => valeur), 
+            Joueurs_FIFA21 : DATA_start.map(({hits}) => hits), 
+            // Joueurs_FIFA21 : DATA.map(({team}) => team)
         },
         "type": "bar",
-        labels: {
-            colors: "#121563",
-            right: true
-        },
+        
+        // {
+        //     colors: "#f00",
+        //     right: true,
+        //     // format: function (x){
+        //     //     return DATA.map(({team}) => team) + d3.format('$')(x);
+        //     // }
+        // },
     },
     color: {
         pattern: ['#121563'],
@@ -36,11 +41,16 @@ var chart = bb.generate({
                 text: {
                   show: false
                 }
-              }
+              },
+              show: false
         },
         x: {
+            tick:{
+                count: 3
+            },
             type: 'category',
-            categories: DATA.map(({nom}) => nom),
+            categories: DATA.map(({team}) => team),
+            // show: false
         },
     },
     "legend": {
@@ -49,7 +59,7 @@ var chart = bb.generate({
     bar: {
         // padding: 1,
         radius: {
-            // ratio: 0.5
+            ratio: 0.5
         },
         width: {
             ratio: 0.7,
@@ -62,7 +72,7 @@ var chart = bb.generate({
 setTimeout(() => {
   chart.load({
     "json" : {
-        Joueurs_FIFA21 : DATA.map(({valeur}) => valeur), 
+        Joueurs_FIFA21 : DATA.map(({hits}) => hits), 
     },
   });
 }, 1000);
